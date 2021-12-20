@@ -50,13 +50,27 @@ const btnOpenModalInformations = document.querySelector('.all-events-information
 
 const spanEdit = document.querySelector('.close-edit')
 const modalEdit = document.querySelector('.modal-edit')
+const btnCloseEdit = document.querySelector('.close-edit-event')
+const btnSaveEdit = document.querySelector('.save-event-edit')
 
 var seeAllInformationsDiv = document.querySelector('.modal-informations-content')
 
 var individualElementDiv = document.querySelector('.events-informations')
 
-document.querySelector('.save-event').addEventListener('click',createEvent)
-document.querySelector('.save-event').addEventListener('click',seeAllEventsInformations)
+document.querySelector('.save-event').addEventListener('click',()=>{
+    let title = document.querySelector('.title')
+    if(title.value == "" ) {
+        title.style.borderColor = 'red'
+        alert('Please put the title')
+    }
+    else {
+        createEvent()
+        seeAllEventsInformations()
+        modal.style.display = 'none'
+    }
+})
+
+document.querySelector('.close-btn').addEventListener('click',()=>{modal.style.display = 'none'})
 
 yearText.textContent = actuallyYear
 
@@ -103,7 +117,8 @@ for(var i=0;i<week.length;i++) {
     var newSpan = document.createElement('span')
     var newSpanText = document.createTextNode(week[i])
     newSpan.appendChild(newSpanText)
-    newSpan.setAttribute('id',`span-${week[i]}`)
+    newSpan.setAttribute('id',`span-${week[pos]}`)
+    newSpan.setAttribute('class','week-days')
     usedDaysOfWeekDiv.appendChild(newSpan)
 }
 
@@ -121,10 +136,15 @@ for(var i=0;i<monthsInformations.length;i++) {
         chosedMonth = pos
        buildingCalendarInformations()
     })
+
+    newSpan.addEventListener('click',e=>{
+        colorSelected(e)
+    })
 }
 
 pullEventInformations(completedChosedData)
 chosedMonth = parseInt(chosedMonth)
+
 for(var i= 0;i<monthsInformations[chosedMonth].day;i++) {
     const dayNumber = i + 1
     var newButton = document.createElement('button')
@@ -173,6 +193,12 @@ window.onclick = function(event) {
       }
     }
 }
+window.onclick = function(event) { 
+    if(event.target == modalEdit) {
+        modalInformations.style.display = 'block'
+        modalEdit.style.display = 'none'
+    }
+}
 
 
 spanInformations.addEventListener('click',function() { 
@@ -188,6 +214,11 @@ window.onclick = function(event) {
       modalEdit.style.display = "none";
     }
 }
+
+btnCloseEdit.addEventListener('click',function() {
+    modalInformations.style.display = "blocl"
+    modalEdit.style.display = "none";
+})
 
 showInformations(actuallyDay,actuallyMonth,actuallyYear)
 keepEventsUptaded()
@@ -292,9 +323,11 @@ function pullEventInformations(e) {
             newLi.setAttribute('id',`${completedChosedData}-task`)
             individualElementDiv.appendChild(newLi)
             if(eventInformations.length !== undefined) {
-                var newLiMore = document.createElement('li')
-                newLiMore.appendChild(document.createTextNode(`More ${eventInformations.length -1} events`))
-                individualElementDiv.appendChild(newLiMore)
+                if(eventInformations.length > 1) {
+                    var newLiMore = document.createElement('li')
+                    newLiMore.appendChild(document.createTextNode(`More ${eventInformations.length -1} events`))
+                    individualElementDiv.appendChild(newLiMore)
+                }
             }
         }
     }
@@ -352,7 +385,7 @@ function seeAllEventsInformations() {
         newDivIndividual.appendChild(btnDelete)
 
         var newPColor = document.createElement('p')
-        newPColor.appendChild(document.createTextNode(allEventsInformations[i].color))
+        newPColor.appendChild(document.createTextNode(`color:`))
         newDivIndividual.appendChild(newPColor)
 
         btnDelete.addEventListener('click',()=>{deleteEvent(completedChosedData,pos)})
@@ -400,17 +433,17 @@ function openEditInformation(key,position) {
     let people = document.querySelector('.people-event-edit')
     let location = document.querySelector('.location-event-edit')
     let description = document.querySelector('.description-event-edit')
-
-    var allEventInformations = [title,duration,hour[0],hour[1],people,location,description] 
+    let color = document.querySelector('.color-edit-event')
 
     title.value = selected.title
-    duration.value = selected.duration
-    hour.value = selected.hour
+    color.value = selected.color
     people.value = selected.people
     location.value = selected.location
     description.value = selected.description
 
-    let btnSaveEdit = document.querySelector('.save-event-edit')
+    var allEventInformations = [title,color,people,location,description]
+
+    btnSaveEdit('.save-event-edit')
     btnSaveEdit.addEventListener('click',()=>{
         for(var i=0;i<allEventInformations.length;i++) {
             if(i<2 && allEventInformations[i]== "") {
@@ -420,6 +453,8 @@ function openEditInformation(key,position) {
                     allEventInformations[i] = ""
                 }
         }
+        modalEdit.style.display = 'none'
+        modalInformations.style.display = 'block'
        editEvent(key,position)
     })
 }
@@ -491,7 +526,6 @@ function keepEventsUptaded() {
     }
 }
 
-
 function highlightToday() {
     var today = document.getElementById(`${actuallyYear}-${actuallyMonth}-${actuallyDay}`)
     if( today == undefined) {
@@ -499,5 +533,19 @@ function highlightToday() {
     }
     else {
         today.style.backgroundColor = "bisque"
+    }
+}
+
+function colorSelected(element) {
+    var elements = document.querySelectorAll('.month-names')
+    for(var i=0; i<elements.length; i++) {
+        if(elements[i] == element.target) {
+            element.target.style.color ="#cacaca"
+            element.target.style.transition = ".1s"
+        }
+        else {
+            elements[i].style.color= "#f8f8f8"
+            elements[i].style = ".month-names:hover {color: #cacaca;}"
+        }
     }
 }
