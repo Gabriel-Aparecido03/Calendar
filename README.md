@@ -22,9 +22,9 @@
 
 ## 📖 Sobre 
 
-    Este é um projeto desenvolvido durante uma aprendizagem sobre o uso do HTML,JAVASCRIPT e CSS, todos sem uso de nenhuma biblioteca e frameworks.Onde os dados ficaram salvos no LocalStorage
+  Este é um projeto desenvolvido durante uma aprendizagem sobre o uso do HTML,JAVASCRIPT e CSS, todos sem uso de nenhuma biblioteca e frameworks.Onde os dados ficaram salvos no LocalStorage
 
-    A proposta do projeto é uma aplicação que posso facilitar a vida de quem muitos compromissos .É possível adicionar vários eventos por dia,de tal modo que o usuário possa remover e editar a qualquer momento a sua tarefa
+  A proposta do projeto é uma aplicação que posso facilitar a vida de quem muitos compromissos .É possível adicionar vários eventos por dia,de tal modo que o usuário possa remover e editar a qualquer momento a sua tarefa
 
 --
 
