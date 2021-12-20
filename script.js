@@ -81,8 +81,9 @@ btnBackToToday = document.querySelector('.back-to-today')
 
 btnBackYear.addEventListener('click',()=>{
     chosedYear-=1 
-    buildingCalendarInformations()
+    
     yearText.textContent  = chosedYear
+    chosedYear % 4 == 0 &&  chosedYear % 100 != 0 ||  chosedYear % 400 == 0 ? monthsInformations[1].day = 29: monthsInformations[1].day = 28
     if( chosedYear < actuallyYear) {
         document.querySelector('.create-events').style.display = 'none' 
         document.querySelector('.events').style.display = 'none'
@@ -91,11 +92,13 @@ btnBackYear.addEventListener('click',()=>{
         document.querySelector('.create-events').style.display = 'block'
         document.querySelector('.events').style.display = 'block'
     }
+    buildingCalendarInformations()
 })
+
 btnNextYear.addEventListener('click',()=>{
-    chosedYear+=1 
-    buildingCalendarInformations()
+    chosedYear+=1
     yearText.textContent  = chosedYear
+    chosedYear % 4 == 0 &&  chosedYear % 100 != 0 ||  chosedYear % 400 == 0 ? monthsInformations[1].day = 29: monthsInformations[1].day = 28
     if( chosedYear < actuallyYear) {
         document.querySelector('.create-events').style.display = 'none' 
         document.querySelector('.events').style.display = 'none'
@@ -104,6 +107,7 @@ btnNextYear.addEventListener('click',()=>{
         document.querySelector('.create-events').style.display = 'block'
         document.querySelector('.events').style.display = 'block'
     }
+    buildingCalendarInformations()
 })
 
 btnBackToToday.addEventListener('click',()=>{
@@ -140,6 +144,10 @@ for(var i=0;i<monthsInformations.length;i++) {
     newSpan.addEventListener('click',e=>{
         colorSelected(e)
     })
+
+    if(pos == actuallyMonth) {
+        newSpan.style.color = "#cacaca"
+    }
 }
 
 pullEventInformations(completedChosedData)
@@ -444,6 +452,7 @@ function openEditInformation(key,position) {
     var allEventInformations = [title,color,people,location,description]
 
     btnSaveEdit('.save-event-edit')
+
     btnSaveEdit.addEventListener('click',()=>{
         for(var i=0;i<allEventInformations.length;i++) {
             if(i<2 && allEventInformations[i]== "") {
