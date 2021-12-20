@@ -15,7 +15,7 @@
 ## 🖥 Preview 
 
 <p align="center">
-  <img src="https://ik.imagekit.io/jyrysqjs84t3/Screenshot_2021-12-20_154855_mcxgAKRSzSZ.png?updatedAt=1640026769313" width="250" >
+  <img src="https://ik.imagekit.io/jyrysqjs84t3/Screenshot_2021-12-20_154855_mcxgAKRSzSZ.png?updatedAt=1640026769313" width="750" >
 </p>
 
 ---
@@ -26,7 +26,7 @@
 
   A proposta do projeto é uma aplicação que posso facilitar a vida de quem muitos compromissos .É possível adicionar vários eventos por dia,de tal modo que o usuário possa remover e editar a qualquer momento a sua tarefa
 
---
+---
 
 ## 🚀 Tecnologias utilizadas
 
