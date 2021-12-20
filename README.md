@@ -4,7 +4,6 @@
 
 
 ## 📋 Índice
--[Título](#Titulo)
 - [Sobre](#-Sobre)
 - [Tecnologias utilizadas](#-Tecnologias-utilizadas)
 - [Como executar o projeto](#-Como-executar-o-projeto)
@@ -50,4 +49,4 @@ Feito isso,abra o seu navegador e acesse `http://127.0.0.1:5500/index.html`
 
 ---
 
-Desenvolvido com o 💜 por Gabriel Aparecido
+Desenvolvido com o 💜 por Gabriel Aparecido, se encontrar bug mande no e-mail: gabriel.aparecido.silva03@gmail.com
