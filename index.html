@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+
+    <title>Calendar</title>
+</head>
+<body>
+    <div class="container">
+        
+        <aside class="informations">
+
+            <button class="back-to-today">Back to Today</button>
+
+            <div class="data-informations">
+                <p class="day-information">13</p>
+                <p class="week-information">MONDAY</p>
+            </div>
+
+            <div class="events">
+                <p id="curent-events">Current Events</p>
+                <ul class="events-informations">
+                </ul>
+                <button  class="all-events-informations">See all events informations</button>
+            </div>
+            
+            <div class="create-events">
+                <p>Create an Event<button class="create-events-informations">+</button></p>
+            </div>
+
+        </aside>
+        <main>
+            
+            <div class="top-bar-year">
+                <div class="field-buttons">
+                    <button class="back-year">&larr;</button>
+                    <button class="next-year">&rarr;</button>
+                </div>
+                <p class="year-information"></p>
+            </div>
+
+                <div class="month-informations"> </div>
+
+                <div class="calendar-container">
+                    <div class="week-field"></div>
+                    <div class="days-field"></div>
+                </div>
+
+        </main>
+
+        <div class="modal">
+            <div class="modal-content">
+                <div class="modal-top-bar">
+                    <h2>Add a new event</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="informations-aboout-events">
+                        <input type="text" class="title" placeholder="title">
+                        <input type="color" class="color-event" placeholder="color">
+                        <input type="text" name="" id="" class="people" placeholder="people">
+                        <input type="text" class="location" placeholder="location">
+                        <input type="text" class="description"placeholder="description">
+                        <button type="submit" class="save-event">Add event</button>
+                    
+                    <button class="close-btn">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-informations">
+            <span class="close-informations">&times;</span>
+            <div class="modal-informations-content"></div>
+        </div>
+
+        <div class="modal-edit">
+            <div class="modal-content-edit">
+                <div class="modal-edit-top-bar">
+                    <h2>.</h2 class="principal-title-edit-event">
+                    <span class="close-edit" >&times;</span>
+                </div>
+                <div class="informations-aboout-edited-event">
+                    
+                        Title<input type="text" class="title-edit-event" >
+                        Color<input type="color" class="color-edit-event">
+                        People<input type="text" name="" id="" class="people-event-edit">
+                        Location<input type="text" class="location-event-edit">
+                        Descripton<input type="text" class="description-event-edit">
+                        <button type="submit" class="save-event-edit">Add event</button>
+                    
+                    <button class="close-btn-edit-event">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
